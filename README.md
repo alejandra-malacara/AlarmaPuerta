@@ -1,19 +1,25 @@
 # AlarmaPuerta
 Instituto tecnológico de león 
+
 Sistemas programables 
 
 Practica 2 
+
 Simulación de alarma de una puerta con Arduino 
 
 Alumna: Malacara Avila Alejandra.
+
 Grupo: 7:00 am – 8:40 am martes-jueves 
 
+
 Introducción
+
 Desarrolle una alarma con arduino para el acceso a una puerta. Cuando la puerta se abra, la alarma debería sonar.
 Requisito indispensable: 
 Reducir el consumo de energía al mínimo. Mientras la alarma no esté sonando el arduino deberá consumir la mínima cantidad de energía. Cuando la puerta se cierre esta deberá de dejar de sonar y regresar al estado de bajo consumo energético.
 
 Material
+
 1.	Arduino
 2.	Cable USB 
 3.	Protoboard 
