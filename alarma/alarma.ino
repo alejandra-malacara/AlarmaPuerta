@@ -5,12 +5,14 @@
 //Definimos pines 
 #define boton 2 
 #define buzzer 8
+#define led 13
 
 int volumen = 0; //inicializar varible en cero 
 
 void setup() {
 pinMode(boton,OUTPUT); //se declara pin 2 como salida 
 pinMode(buzzer,OUTPUT); //se declara pin 8 como salida 
+pinMode(led, OUTPUT);// se declara pin 13 como salid 
 set_sleep_mode(SLEEP_MODE_PWR_DOWN);
 attachInterrupt(digitalPinToInterrupt(boton),inter,RISING); // interrupccion en el boton 
 }
@@ -18,7 +20,8 @@ attachInterrupt(digitalPinToInterrupt(boton),inter,RISING); // interrupccion en 
 
 void loop() {
      if(volumen==0){ // si la variable volumen esta en 0, el modo sleep se activa 
-   sleep_enable();// modo de suspension 
+      digitalWrite(13, LOW); // led se apaga 
+     sleep_enable();// modo de suspension 
     sleep_mode(); // Esta macro establece automáticamente el bit de habilitación de suspensión
                    //se pone en suspensión y borra el bit de habilitación de suspensión.
   }else{ //caso contrario,  estara en modo disable desabilita la suspension 
@@ -33,11 +36,12 @@ volumen=!volumen; // si  volumen=true; después de la expresión volumen=!volume
 }
 
 void alarm(){
-
-   analogWrite(buzzer,128);// analogWrite escribe un valor en un pin analógico
+ analogWrite(buzzer,128);// analogWrite escribe un valor en un pin analógico
                           // a pin buzzer le damos un ciclo de trabajo de 128
-   delay(200);
-   digitalWrite(buzzer,0);// el pin va a generar una onda constante del ciclo de trabajo especificado hasta la siguiente llamada
+ delay(200);
+ digitalWrite(13, HIGH);// se enciende led 
+  //delay(200);
+ digitalWrite(buzzer,0);// el pin va a generar una onda constante del ciclo de trabajo especificado hasta la siguiente llamada
 //                            // en este caso con digitalWrite 
    delay(100);
 }
